@@ -21,9 +21,5 @@
 
                 :compiler {:output-to "resources/public/js/tetris.js"
                            :optimizations :whitespace
-                           :pretty-print true}}]
-
-              :crossovers [jeremycw.util tetris.logic]
-              :crossover-path "src/cljs"
-              :crossover-jar false})
+                           :pretty-print true}}]})
   
