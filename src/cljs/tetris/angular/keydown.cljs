@@ -1,5 +1,6 @@
 (ns tetris.angular.keydown
-  (:require-macros [tetris.angular.macros :as macros]))
+  (:require-macros [tetris.angular.macros :as macros])
+  (:require [tetris.angular.config :as conf]))
 (macros/keydown-directive "keyLeft" 37)
 (macros/keydown-directive "keyRight" 39)
 (macros/keydown-directive "keyUp" 38)

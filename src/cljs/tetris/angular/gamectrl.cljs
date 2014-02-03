@@ -1,5 +1,7 @@
 (ns tetris.angular.gamectrl
-  (:require-macros [tetris.angular.macros :as macros]))
+  (:require-macros [tetris.angular.macros :as macros])
+  (:require [tetris.angular.config :as conf]
+            [tetris.logic :as logic]))
 (.controller
   (.module js/angular "tetris")
   "GameCtrl"
@@ -9,6 +11,7 @@
              (set! (.-game $scope) (logic/new-game))
              (macros/add-move-to-scope $scope "left")
              (macros/add-move-to-scope $scope "right")
+             (macros/add-move-to-scope $scope "down")
              (macros/add-move-to-scope $scope "drop")
              (macros/add-move-to-scope $scope "rotate")
              ($timeout (fn down-on-timeout []

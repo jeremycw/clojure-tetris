@@ -7,6 +7,9 @@
   (GET "/" []
     (html
       [:head
+        [:script {:type "text/javascript" :src "js/angular/angular.js"}]
+        [:script {:type "text/javascript" :src "js/angular/angular-route.js"}]
+        [:script {:type "text/javascript" :src "js/angular/angular-animate.js"}]
         [:script {:type "text/javascript" :src "js/tetris.js"}]]
       [:body {:ng-app "tetris"}
         [:ng-view]]))
