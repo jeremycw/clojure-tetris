@@ -7,7 +7,7 @@
              (set! (.-game ~scope)
                    (logic/make-move (.-game ~scope) ~(keyword command)))
              (set! (.-grid ~scope)
-                   (clj->js (logic/get-grid (.-game ~scope))))))))
+                   (cljs/core/clj->js (logic/get-grid (.-game ~scope))))))))
 
 (defmacro keydown-directive [directive-name key-code]
   `(.directive

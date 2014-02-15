@@ -1,12 +1,13 @@
 (ns tetris.logic
   (:require [tetris.logic.impl :as impl]))
 
-(defn new-game []
+(defn new-game [block-seq]
   {:grid impl/initial-grid
-   :block ((impl/rand-block) impl/blocks)
+   :block ((first (block-seq)) impl/blocks)
    :hit-bottom false
    :score 0
    :finished false
+   :block-seq (rest (block-seq))
    :position impl/starting-pos})
 
 (defn get-grid [{:keys [grid block position]}]
@@ -15,6 +16,9 @@
 (defn game-over? [{finished :finished}] finished)
 
 (defn get-score [{score :score}] score)
+
+(defn random-block-seq []
+  (cons (impl/rand-block) (lazy-seq (random-block-seq))))
 
 (defn make-move [game command]
   (case command

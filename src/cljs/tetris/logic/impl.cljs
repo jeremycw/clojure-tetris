@@ -55,11 +55,12 @@
   (let [size (count grid)
         cleared-grid (filter #(not (every? truthy? %)) grid)
         rows-cleared (- size (count cleared-grid))
-        next-block ((rand-block) blocks)
+        next-block ((first (:block-seq game)) blocks)
         new-rows (fill-vec
                    (fill-vec nil (count (first grid)))
                    rows-cleared)
         next-game-base (assoc game :block next-block
+                                   :block-seq (rest (:block-seq game))
                                    :finished (not (legal-move?
                                                     grid
                                                     starting-pos
